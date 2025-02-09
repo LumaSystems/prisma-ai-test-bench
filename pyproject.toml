@@ -14,6 +14,7 @@ dynamic = ["version"]
 dependencies = [
     "av",
     "accelerate>=0.26.0",
+    "litellm",
     "transformers",
     "torch",
     "Pillow",

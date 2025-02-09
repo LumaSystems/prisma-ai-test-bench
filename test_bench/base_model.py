@@ -3,7 +3,6 @@ from abc import ABC, abstractmethod
 
 
 class BaseModelTest(ABC):
-
     execution_times = []
     model_name = None
 

@@ -78,7 +78,8 @@ class VideoClassifier(BaseModelTest):
 if __name__ == "__main__":
     video_options = ["Nuclear energy", "eating spaghetti", "eating salchipapa"]
 
-    text_generator = VideoClassifier(video_options)
-    text_generator.load_pipeline()
-    text_generator.run()
-    text_generator.report_execution_times()
+    video_classifier = VideoClassifier(video_options)
+    video_classifier.load_video()
+    video_classifier.load_pipeline()
+    video_classifier.run()
+    video_classifier.report_execution_times()
