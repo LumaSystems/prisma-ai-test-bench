@@ -17,5 +17,4 @@ ENV PYTHONPATH "${PYTHONPATH}:${PWD}"
 # Copy the project files
 COPY . .
 
-# Set the default command (This will be overridden by `docker-compose.yml`)
-CMD ["python", "-m", "test_bench.text_generator"]
+CMD ["python", "-m", "test_bench.run_test_bench"]
