@@ -36,6 +36,6 @@ test_bench_list = [
 if __name__ == "__main__":
     for test in test_bench_list:
         model = test["model"](**test["properties"])
-        print(f'==== Running test for: {model.model_name} ====')
+        print(f"==== Running test for: {model.model_name} ====")
         model.run()
     model.report_execution_times()
