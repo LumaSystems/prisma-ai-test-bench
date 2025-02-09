@@ -60,7 +60,7 @@ class VideoClassifier(BaseModelTest):
         self.model_pipeline = AutoModel.from_pretrained(self.model)
 
     @BaseModelTest.timecheck
-    def run(self):
+    def inference(self):
         inputs = self.processor(
             text=self.video_options,
             videos=list(self.video),
@@ -74,12 +74,15 @@ class VideoClassifier(BaseModelTest):
         probs = logits_per_video.softmax(dim=1)
         print(probs)
 
+    def run(self):
+        self.load_video()
+        self.load_pipeline()
+        self.inference()
+
 
 if __name__ == "__main__":
     video_options = ["Nuclear energy", "eating spaghetti", "eating salchipapa"]
 
     video_classifier = VideoClassifier(video_options)
-    video_classifier.load_video()
-    video_classifier.load_pipeline()
     video_classifier.run()
     video_classifier.report_execution_times()

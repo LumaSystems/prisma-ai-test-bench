@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama_server
+    restart: always
+    ports:
+      - "11434:11434"
+    networks:
+      - ai_network
+
+  ai-model-tester:
+    build: .
+    container_name: ai_model_tester
+    depends_on:
+      - ollama
+    environment:
+      - API_BASE=http://ollama:11434
+    networks:
+      - ai_network
+    command: ["python", "-m", "test_bench.text_generator"]
+
+networks:
+  ai_network:
+    driver: bridge

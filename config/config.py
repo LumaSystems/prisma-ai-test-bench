@@ -12,3 +12,6 @@ ENV_VARIABLES = {
     **dotenv_values(dotenv_path=BASE_DIR / ".env"),
     **os.environ,
 }
+
+
+os.environ["API_BASE"] = ENV_VARIABLES.get("API_BASE", "http://ollama:11434")

@@ -1,0 +1,5 @@
+*.xlsx
+data/
+.vscode
+.venv/
+*.ipynb
